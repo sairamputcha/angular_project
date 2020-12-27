@@ -1,0 +1,65 @@
+<body>
+  <h2 style="text-align:center;margin-left:80px;">Edit Student</h2>
+  <form [formGroup]="editForm">
+  <table align="center" cellpadding = "10">
+    <td>
+  <tr>
+  <td>Id</td>
+  <td><input type="text" formControlName="id" class="form-control"  [(ngModel)] ="modifyStudents.id" readonly style="width: 250px;"></td>
+  </tr>
+  <tr>
+    <td>Name</td>
+   <td><input type="text" formControlName="name" class="form-control" [(ngModel)]="modifyStudents.name" style="width:250px;" [ngClass]="{ 'is-invalid':submitted && fields.name.errors}">
+    <div *ngIf=" submitted && fields.name.errors" class="invalid-feedback">
+      <div *ngIf="fields.name.errors.required"> Name is required</div>
+  </div>
+  </td>
+  </tr>
+  <tr>
+   <td>Age</td>
+   <td><input type="text"  formControlName="age" class="form-control" [(ngModel)]="modifyStudents.age" style="width: 250px;"[ngClass]="{ 'is-invalid': submitted && fields.age.errors }">
+    <div *ngIf=" submitted && fields.age.errors" class="invalid-feedback">
+     <div *ngIf="fields.age.errors.min">Age must be greater than 16</div>
+    </div>
+  </td>
+  </tr>
+  <tr>
+  <td>Admission Year </td>
+   <td>
+      <select type="text"  formControlName="admissionYear" class="form-control"[(ngModel)]="modifyStudents.admissionYear" style="width: 250px;">
+          <option>2017</option>
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+      </select>
+    </td>
+    </tr>
+  <!-- <tr>
+  <td>Dept</td>
+  <td>
+  <input type="text" name="Department" [(ngModel)]="modifyStudents.dept"/></td> -->
+  <tr>
+  <td> Department</td>
+   <td>
+      <select type="text" formControlName="department" class="form-control"[(ngModel)]="modifyStudents.dept"style="width: 250px;" >
+          <option>Computer Science and Engineering</option>
+          <option>Mechanical Engineering</option>
+          <option>Electrical and Electronics Engineering</option>
+          <option>Electronics and Communications Engineering</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <td>
+        <button class="btn" style="margin-left:50px;" value="close" (click)="close()"class="btn btn-primary">Close</button>
+
+     <button class="btn" style="margin-left:3px;" value="updateRecord" (click)="updateRecord()"class="btn btn-primary">Update</button>
+     <!-- <button class="btn" style="margin-left:3px;" value="deleteRecord" (click)="deleteRecord()"class="btn btn-primary">delete</button> -->
+
+      </table>
+</form>
+
+
+
+

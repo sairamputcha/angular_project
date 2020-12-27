@@ -1,0 +1,36 @@
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-11 user-container"align="center">
+  <table align="margin-center">
+  <h2 style="text-align:center"> Student Details</h2>
+  <button class="btn btn-danger" style="width:120px" (click)="displayAddScreen()"> Add Student</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Admission Year</th>
+      <th>Age</th>
+      <th>Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{student.id}}</td>
+              <td>{{student.name}}</td>
+              <td>{{student.admissionYear}}</td>
+              <td>{{student.age}}</td>
+              <td>{{student.dept}}</td>
+      <td class="hidden"></td>
+      <td></td>
+      <td></td>
+      <!-- < <td><button class="btn btn-success" (click)="deleteUser(students)"> Delete</button> -->
+        <button class="btn btn-success" (click)="displayEditScreen(student.id)" style="margin-left: 20px;"> Edit</button>
+        <button class="btn" style="margin-left:3px;" value="deleteRecord" (click)="deleteRecord(student.id)"class="btn btn-primary">delete</button>
+    </tr>
+    </tbody>
+  </table>
+  </table>
+</div>
